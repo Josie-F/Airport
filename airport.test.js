@@ -42,13 +42,10 @@ describe('Airports', () => {
         plane.boardPlane(person)
         plane.boardPlane(person2)
         airport.landPlane(plane)
-        
+
         expect(airport.name).toBe('Valencia airport')
         expect(airport.landed[0]).toBeTruthy()
         expect(airport.landed[0].board[0].name).toBe('Cecilia')
         expect(airport.landed[0].board[0].bag[0].weight).toBe(25)
-        
-
-
     })
 })

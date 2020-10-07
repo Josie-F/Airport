@@ -28,5 +28,4 @@ describe('there are planes', () => {
     test('a plane needs a destination', () => {
         expect(() => new Plane).toThrowError('Plane must have a destination')
     })
-
 })
