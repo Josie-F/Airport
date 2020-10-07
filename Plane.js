@@ -1,8 +1,9 @@
 class Plane {
-    constructor(destination){
-        if(!destination) throw new Error('Plane must have a destination')
+    constructor(inbound, outbound){
+        if(!inbound || !outbound) throw new Error('Plane must have a destination')
         this.board = []
-        this.destination = destination
+        this.outbound = outbound
+        this.inbound = inbound
     }
     boardPlane(person) {
     this.board.push(person)
