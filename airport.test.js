@@ -1,7 +1,7 @@
 
 const Airport = require('./Airport')
 const Bag = require('./Bag')
-const {Person, Passenger} = require('./Person')
+const { Person, Passenger } = require('./Person')
 const Plane = require('./Plane')
 
 
@@ -57,4 +57,30 @@ describe('Airports', () => {
         expect(Airport.airports.length).toBe(9)
 
     })
+    // test('airports have a city', (done) => {
+    //     const CDG = new Airport('CDG')
+    //     CDG.getInfo((err, info) => {
+    //     expect(err).toBeNull()
+    //     expect(info[0].city).toEqual('Paris')
+    //     done()
+    //     })
+    // })
+    // test('airports have a city', () => {
+    //     const CDG = new Airport('CDG')
+    //     return CDG.getInfo()
+    //         .then(info => {
+    //             expect(info[0].city).toEqual('Paris')
+    //         })
+    //         .catch(err => {
+    //             expect(err).toBeNull()
+    //         })
+    // })
+    test('can get information like the city or name from an airport instance', async () => {
+        const CDG = new Airport('CDG')
+        const airport = await CDG.getInfo()
+        
+        expect(airport[0].city).toEqual('Paris')
+        expect(airport[0].name).toEqual('Charles de Gaulle International Airport')
+    })
+
 })
