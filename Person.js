@@ -19,12 +19,12 @@ class Crew extends Person {
     crossCheck(crewarray) {
         return crewarray.every(crewmember => {
             if (crewmember instanceof Crew) {
-            return true
-        } else {
-        return false
-        
+                return true
+            } else {
+                return false
+
+            }
+        })
     }
-})
-}
 }
 module.exports = { Person, Passenger, Crew }
