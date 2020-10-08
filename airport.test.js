@@ -1,7 +1,7 @@
 
 const Airport = require('./Airport')
 const Bag = require('./Bag')
-const Person = require('./Person')
+const {Person, Passenger} = require('./Person')
 const Plane = require('./Plane')
 
 
@@ -31,8 +31,8 @@ describe('Airports', () => {
     test('7. One test should assert you have an airport, with a plane, on the plane are passengers & you can read the weight of one of the bags of a passenger', () => {
         const bag = new Bag(25)
         const bag2 = new Bag(22)
-        const person = new Person('Cecilia')
-        const person2 = new Person('Bob')
+        const person = new Passenger('Cecilia')
+        const person2 = new Passenger('Bob')
 
         person.addBag(bag)
         person2.addBag(bag2)
@@ -41,14 +41,14 @@ describe('Airports', () => {
         const out = new Airport('LA')
         const plane = new Plane(inb, out)
 
-        plane.boardPlane(person)
-        plane.boardPlane(person2)
+        plane.boardPlane([person])
+        plane.boardPlane([person2])
         inb.landPlane(plane)
 
         expect(inb.name).toBe('Luton')
         expect(inb.planes[0]).toBeTruthy()
-        expect(inb.planes[0].board[0].name).toBe('Cecilia')
-        expect(inb.planes[0].board[0].bag[0].weight).toBe(25)
+        expect(inb.planes[0].passboard[0].name).toBe('Cecilia')
+        expect(inb.planes[0].passboard[0].bag[0].weight).toBe(25)
     })
     test('airports should know about each other', () => {
         expect(Airport.airports.length).toBe(7)

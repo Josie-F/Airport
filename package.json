@@ -4,7 +4,8 @@
   "description": "airport ",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test:report": "jest --coverage=true"
   },
   "author": "Josie-f",
   "license": "ISC",
